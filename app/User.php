@@ -36,4 +36,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function path()
+    {
+        # code...
+        return url("/users/show/".$this->id);
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        # code...
+        $this->attributes['password'] = bcrypt($value);
+    }
 }
