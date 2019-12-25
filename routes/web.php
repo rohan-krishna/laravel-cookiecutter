@@ -44,3 +44,10 @@ Route::prefix('users')->middleware('auth')->group(function() {
 Route::prefix('source-code')->middleware('auth')->group(function() {
 
 });
+
+
+Route::prefix('admin')->middleware('auth')->group(function() {
+
+    // Admin backend with AdminLTE Theme
+    Route::get('/','AdminController@index');
+});
